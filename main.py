@@ -1,6 +1,7 @@
 from tkinter import filedialog
 from tkinter import messagebox
 import customtkinter
+import webbrowser
 import qrcode
 FONT = ("Bahnschrift", 25)
 
@@ -27,7 +28,8 @@ def about_devs():
 
 
 
-
+def open_help_center():
+    webbrowser.open("https://github.com/mahiru7229/python-qr-code-generator/wiki/Hướng-dẫn-sử-dụng")
 
 
 windows = customtkinter.CTk()
@@ -41,7 +43,7 @@ content_entry.grid(row= 1, column = 0, padx=10, pady=10)
 submit_btn = customtkinter.CTkButton(windows, text="Tạo QR Code", font = FONT, fg_color=BUTTON_COLOR, text_color=FONT_COLOR, hover_color=BUTTON_COLOR_HOVER, command=create_qr)
 submit_btn.grid(row= 0, column = 1, padx=10, pady=10)
 
-help_btn = customtkinter.CTkButton(windows, text="Hướng dẫn sử dụng", font = FONT, fg_color=BUTTON_COLOR, text_color=FONT_COLOR, hover_color=BUTTON_COLOR_HOVER)
+help_btn = customtkinter.CTkButton(windows, text="Hướng dẫn sử dụng", font = FONT, fg_color=BUTTON_COLOR, text_color=FONT_COLOR, hover_color=BUTTON_COLOR_HOVER, command=open_help_center)
 help_btn.grid(row= 1, column = 1, padx=10, pady=10)
 
 about_btn = customtkinter.CTkButton(windows, text="About Devs", font = FONT, fg_color=BUTTON_COLOR, text_color=FONT_COLOR, hover_color=BUTTON_COLOR_HOVER, command=about_devs)
