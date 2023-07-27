@@ -11,16 +11,17 @@ FONT_COLOR = "#000000"
 
 def create_qr():
     data = content_entry.get()
-    qr = qrcode.make(data)
-    files = [('Portable Network Graphics', '*.png'), 
-             ('All Files', '*.*'),
-             ('Joint Photographic Experts Group', '*.jpeg')]
-    dir = filedialog.asksaveasfile(filetypes=files,defaultextension=files)
-    if dir != None:
-        qr.save(dir.name)
-        messagebox.showinfo(title="Thành công", message="QR code đã được lưu !")
-
-
+    if data != "":
+        qr = qrcode.make(data)
+        files = [('Portable Network Graphics', '*.png'), 
+                ('All Files', '*.*'),
+                ('Joint Photographic Experts Group', '*.jpeg')]
+        dir = filedialog.asksaveasfile(filetypes=files,defaultextension=files)
+        if dir != None:
+            qr.save(dir.name)
+            messagebox.showinfo(title="Thành công", message="QR code đã được lưu !")
+    else:
+        messagebox.showerror(title="Lỗi", message="Bạn cần phải nhập nội dung !")
 def about_devs():
     messagebox.showinfo(title="About Devs", message="Made by @mahiru7229")
 
